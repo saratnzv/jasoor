@@ -1,225 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <!-- تنظیمات پایه صفحه: کدگذاری، نمایش در موبایل و توضیح سئو -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="جسور؛ پلتفرم کشف و شنیدن پادکست‌های ایرانی.">
-  <title>جسور | پلتفرم پادکست‌های ایرانی</title>
+  <meta name="description" content="جسور؛ جایی برای کشف و شنیدن پادکست‌های ایرانی.">
+  <title>جسور | پادکست‌های ایرانی</title>
 
-  <!-- اتصال زودهنگام به فونت فارسی -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- فایل استایل اصلی سایت -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- فایل JavaScript با defer: پس از تحلیل HTML اجرا می‌شود -->
-  <script src="js/script.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
-  <!-- =========================================
-       سربرگ: لوگو، لینک‌های ناوبری و ورود
-       ========================================= -->
+
+  <!-- ===================== هدر ===================== -->
   <header class="site-header">
-    <!-- لوگو و نام برند -->
-    <a class="brand" href="#" aria-label="جسور، صفحه اصلی">
-      <!-- موج صوتی تزئینی لوگو؛ با CSS ساخته می‌شود -->
-      <span class="brand-wave" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-      </span>
-      <span class="brand-name">جسور</span>
-      <span class="brand-latin">J A S O O R</span>
-    </a>
+    <div class="container site-header__inner">
 
-    <!-- لینک‌های اصلی سایت -->
-    <nav class="main-nav" aria-label="ناوبری اصلی">
-      <a class="active" href="#">خانه</a>
-      <a href="#categories">دسته‌بندی‌ها</a>
-      <a href="#podcasts">پادکست‌ها</a>
-      <a href="#creators">پادکسترها</a>
-      <a href="#ads">تبلیغات</a>
-    </nav>
+      <a href="index.html" class="logo" aria-label="جسور، صفحه اصلی">
+        <!-- فایل لوگو را در این مسیر بگذارید -->
+        <img src="assets/images/logo.png" alt="جسور" class="logo__img" width="82" height="56">
+      </a>
 
-    <!-- ابزارهای سمت سربرگ: جست‌وجو و ورود -->
-    <div class="header-actions">
-      <button class="search-icon" type="button" aria-label="رفتن به جست‌وجو" id="focus-search">⌕</button>
-      <a class="login-button" href="pages/login.html">ورود / ثبت‌نام</a>
+      <nav class="main-nav" id="main-nav" aria-label="ناوبری اصلی">
+        <ul class="main-nav__list">
+          <li><a href="index.html" aria-current="page">خانه</a></li>
+          <li><a href="#podcasts">پادکست‌ها</a></li>
+          <li><a href="#categories">دسته‌بندی‌ها</a></li>
+          <li><a href="#listen">شنیدن</a></li>
+          <li><a href="#for-creators">پادکسترها</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <form class="search-box" action="pages/podcasts.html" method="get" role="search">
+          <label for="header-search" class="visually-hidden">جست‌وجوی پادکست</label>
+          <input type="search" id="header-search" name="q" placeholder="جست‌وجوی پادکست...">
+          <button type="submit" aria-label="جست‌وجو">⌕</button>
+        </form>
+        <a href="pages/login.html" class="btn btn--primary">ورود / ثبت‌نام</a>
+        <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="باز کردن منو">☰</button>
+      </div>
+
     </div>
-
-    <!-- دکمه باز و بسته کردن منوی موبایل -->
-    <button class="menu-toggle" id="menu-toggle" type="button"
-      aria-label="باز کردن منو" aria-expanded="false">☰</button>
   </header>
 
+  <!-- ===================== محتوای اصلی ===================== -->
   <main>
-    <!-- =========================================
-         بخش Hero: پیام اصلی برند و جست‌وجوی پادکست
-         ========================================= -->
+
+    <!-- معرفی -->
     <section class="hero" aria-labelledby="hero-title">
-      <!-- تصویرسازی تزئینی سمت Hero؛ با CSS فعلی نمایش داده می‌شود -->
-      <div class="hero-art" aria-hidden="true">
-        <div class="orb"></div>
-        <div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i></div>
-        <div class="hero-disc">♫</div>
-
-        <!-- جای اختیاری برای تصویر Hero:
-             برای استفاده، کامنت را بردارید و مسیر تصویر خود را وارد کنید.
-             <img class="hero-image" src="images/hero-cover.webp" alt=""> -->
-      </div>
-
-      <div class="hero-content">
-        <!-- برچسب کوچک بالای شعار -->
-        <p class="eyebrow">
-          <span class="mini-wave" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span>
-          </span>
-          پلتفرم پادکست‌های ایرانی
-        </p>
-
-        <!-- شعار اصلی برند -->
-        <h1 id="hero-title">
-          آدم‌ها نه از طریق کارهایی که کردن،<br>
-          بلکه از طریق <em>جسارت‌هایی</em> که به خرج دادن باید شناخته بشن.
-        </h1>
-
-        <!-- توضیح کوتاه برند -->
-        <p class="hero-subtitle">صداهای متفاوت، روایت‌هایی که ارزش شنیدن دارند.</p>
-
-        <!-- فرم جست‌وجو؛ کنترل آن در JavaScript انجام می‌شود -->
-        <form class="search-form" id="podcast-search" role="search">
-          <label class="sr-only" for="search-input">جست‌وجوی پادکست</label>
-          <input id="search-input" name="q" type="search"
-            placeholder="جست‌وجوی پادکست، نام برنامه یا موضوع..." autocomplete="off">
-          <button type="submit">جست‌وجو <span aria-hidden="true">←</span></button>
-        </form>
-
-        <!-- عبارت‌های جست‌وجوی پرکاربرد؛ کلیک هر مورد جست‌وجو را پر می‌کند -->
-        <div class="popular-searches">
-          <span>جست‌وجوهای محبوب:</span>
-          <button type="button" data-search="روانشناسی">روانشناسی</button>
-          <button type="button" data-search="تاریخ">تاریخ</button>
-          <button type="button" data-search="تکنولوژی">تکنولوژی</button>
-          <button type="button" data-search="طنز">طنز</button>
+      <div class="container hero__inner">
+        <h1 id="hero-title">آدم‌ها نه از طریق شغلشون و درسشون و کارایی که کردن، بلکه از طریق جسارت‌هایی که به خرج دادن باید شناخته بشن.</h1>
+        <p class="hero__lead">جسور جایی است برای پیدا کردن و شنیدن پادکست‌های ایرانی.</p>
+        <div class="hero__cta">
+          <a href="#podcasts" class="btn btn--primary">پادکست‌ها را ببین</a>
+          <a href="#for-creators" class="btn btn--outline">پادکستت را معرفی کن</a>
         </div>
-      </div>
-
-      <!-- یادداشت تزئینی پایین Hero -->
-      <div class="hero-bottom-note">
-        <span class="play-symbol" aria-hidden="true">▶</span>
-        <span>تا حالا جسور رو شنیدی؟<small>با ما همراه شو...</small></span>
       </div>
     </section>
 
-    <!-- =========================================
-         بخش دسته‌بندی‌ها: کارت‌ها از آرایه JS ساخته می‌شوند
-         ========================================= -->
-    <section class="section categories-section" id="categories">
-      <div class="section-heading">
+    <!-- دسته‌بندی‌ها -->
+    <section class="section" id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="categories-title">دسته‌بندی‌ها</h2>
+        </header>
+
+        <ul class="category-list">
+          <li><a href="pages/podcasts.html?category=science" class="category-chip">علمی</a></li>
+          <li><a href="pages/podcasts.html?category=history" class="category-chip">تاریخ</a></li>
+          <li><a href="pages/podcasts.html?category=self-development" class="category-chip">توسعه فردی</a></li>
+          <li><a href="pages/podcasts.html?category=technology" class="category-chip">تکنولوژی</a></li>
+          <li><a href="pages/podcasts.html?category=culture" class="category-chip">فرهنگ و ادبیات</a></li>
+          <li><a href="pages/podcasts.html?category=books" class="category-chip">کتاب</a></li>
+          <li><a href="pages/podcasts.html?category=talk" class="category-chip">گفت‌وگو</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- فهرست پادکست‌ها -->
+    <section class="section" id="podcasts" aria-labelledby="podcasts-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="podcasts-title">پادکست‌ها</h2>
+          <p class="section__desc">پادکست‌های فارسی که روی کست‌باکس منتشر شده‌اند.</p>
+        </header>
+
+        <div class="card-grid">
+
+          <article class="podcast-card" data-castbox-id="1399866">
+            <img class="podcast-card__cover" src="https://assets.pippa.io/shows/624d67c5c6535900128484a3/show-cover.jpg" alt="کاور پادکست رادیو دیو" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">رادیو دیو</h3>
+              <p class="podcast-card__desc">در هر اپیزود یک اقلیم یا موضوع ویژه، با کمک ادبیات و موسیقی.</p>
+              <p class="podcast-card__meta"><span class="tag">فرهنگ و ادبیات</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id1399866" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="2385543">
+            <img class="podcast-card__cover" src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts114/v4/70/90/e0/7090e0ac-cf58-0540-8481-607371852419/mza_5751570348362765178.jpg/600x600bb.jpg" alt="کاور پادکست رادیو نیست" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">رادیو نیست</h3>
+              <p class="podcast-card__desc">پادکست گفت‌وگومحور فارسی که هفتگی منتشر می‌شود.</p>
+              <p class="podcast-card__meta"><span class="tag">گفت‌وگو</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id2385543" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="7413246">
+            <img class="podcast-card__cover" src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/22/32/cc/2232cc20-1464-be1c-1f68-f07909723259/mza_10168148864579384009.jpg/600x600bb.jpg" alt="کاور پادکست پاراگراف" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">پاراگراف</h3>
+              <p class="podcast-card__desc">قصه‌ی تمدن‌ها، جنگ‌ها، ایده‌ها و آدم‌هایی که دنیای امروز را ساختند.</p>
+              <p class="podcast-card__meta"><span class="tag">تاریخ</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id7413246" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="6039408">
+            <img class="podcast-card__cover" src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts112/v4/19/0b/43/190b43a1-8049-a2f5-63f6-6ecc6325cc28/mza_17628134532651742707.jpg/600x600bb.jpg" alt="کاور پادکست رخ" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">رخ</h3>
+              <p class="podcast-card__desc">داستان زندگی کسانی که بخشی از تاریخ ایران و جهان را رقم زدند.</p>
+              <p class="podcast-card__meta"><span class="tag">تاریخ</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id6039408" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="5026144">
+            <img class="podcast-card__cover" src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts124/v4/29/df/cb/29dfcbed-db74-d555-0e8b-2e6fa3d81bb7/mza_16637124927933056212.jpg/600x600bb.jpg" alt="کاور پادکست استرینگ‌کست" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">استرینگ‌کست</h3>
+              <p class="podcast-card__desc">هر قسمت داستانی واقعی درباره‌ی یک اتفاق علمی است.</p>
+              <p class="podcast-card__meta"><span class="tag">علمی</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id5026144" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="6772092">
+            <img class="podcast-card__cover" src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/44542160/44542160-1759592721682-36c0cb0505324.jpg" alt="کاور پادکست سل ساگا" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">سل ساگا</h3>
+              <p class="podcast-card__desc">بررسی سرگذشت علم ژنتیک و رویدادهای مهم آن.</p>
+              <p class="podcast-card__meta"><span class="tag">علمی</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id6772092" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="4894772">
+            <img class="podcast-card__cover" src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts126/v4/00/31/4c/00314cb7-6716-d77a-d134-673ca137f476/mza_12390173946242352654.jpg/600x600bb.jpg" alt="کاور پادکست رادیو راه" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">رادیو راه</h3>
+              <p class="podcast-card__desc">با مجتبی شکوری؛ کنج آرامی برای خواندن، فکر کردن و جست‌وجوی راهی برای بهتر زیستن.</p>
+              <p class="podcast-card__meta"><span class="tag">توسعه فردی</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id4894772" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="1555306">
+            <div class="podcast-card__cover podcast-card__cover--empty" role="img" aria-label="کاور پادکست رادیو مذاکره"></div>
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">رادیو مذاکره</h3>
+              <p class="podcast-card__desc">روزنوشته‌های محمدرضا شعبانعلی درباره‌ی روزمرگی، مسائل اجتماعی، فرهنگ، مدیریت و توسعه فردی.</p>
+              <p class="podcast-card__meta"><span class="tag">توسعه فردی</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id1555306" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="5656367">
+            <img class="podcast-card__cover" src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/4f/e6/74/4fe67465-2ff1-73ae-8306-b5497a1c8885/mza_3205137134570485457.jpg/600x600bb.jpg" alt="کاور پادکست بی‌پلاس" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">بی‌پلاس</h3>
+              <p class="podcast-card__desc">خلاصه‌ی فارسی کتاب‌های غیرداستانی.</p>
+              <p class="podcast-card__meta"><span class="tag">کتاب</span></p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id5656367" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+          <article class="podcast-card" data-castbox-id="4804474">
+            <img class="podcast-card__cover" src="https://s3.castbox.fm/b8/20/ac/528f9c405797746dc3b568868e.jpg" alt="کاور آرشیو پادکست‌های جادی و رادیو گیک" loading="lazy" width="300" height="300">
+            <div class="podcast-card__body">
+              <h3 class="podcast-card__title">جادی و رادیو گیک</h3>
+              <p class="podcast-card__desc">آرشیو پادکست‌های جادی میرمیرانی.</p>
+              <p class="podcast-card__meta"><span class="tag">تکنولوژی</span></p>
+              <p class="podcast-card__note">این کانال رسمی نیست و یکی از علاقه‌مندان آن را ساخته است.</p>
+              <a class="btn btn--small" href="https://castbox.fm/app/castbox/player/id4804474" target="_blank" rel="noopener">شنیدن در کست‌باکس</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- پخش‌کننده‌ی کست‌باکس -->
+    <section class="section" id="listen" aria-labelledby="listen-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="listen-title">همین‌جا بشنو</h2>
+          <p class="section__desc">نمونه‌ای از پخش‌کننده‌ی کست‌باکس: رادیو دیو.</p>
+        </header>
+
+        <iframe
+          class="castbox-embed"
+          title="پخش‌کننده‌ی کست‌باکس: رادیو دیو"
+          src="https://castbox.fm/app/castbox/player/id1399866?v=8.22.11&autoplay=0"
+          loading="lazy"
+          width="100%"
+          height="500"
+          frameborder="0"></iframe>
+      </div>
+    </section>
+
+    <!-- دعوت به همکاری -->
+    <section class="section cta" id="for-creators" aria-labelledby="cta-title">
+      <div class="container cta__inner">
         <div>
-          <p class="section-kicker">دنیای صداها</p>
-          <h2>دسته‌بندی پادکست‌ها</h2>
-          <p class="section-description">موضوعی رو انتخاب کن و جهان تازه‌ای بشنو.</p>
+          <h2 id="cta-title">پادکست داری؟</h2>
+          <p>پادکستت را به جسور معرفی کن تا شنونده‌های بیشتری پیدایش کنند.</p>
         </div>
-        <a class="text-link" href="pages/podcasts.html">مشاهده همه ←</a>
+        <a href="pages/register.html" class="btn btn--primary">معرفی پادکست</a>
       </div>
-      <!-- ظرف خالی برای رندر دسته‌بندی‌ها با JavaScript -->
-      <div class="category-grid" id="category-grid"></div>
     </section>
 
-    <!-- =========================================
-         بخش اپیزودهای تازه: محتوا از آرایه JS ساخته می‌شود
-         ========================================= -->
-    <section class="section episodes-section" id="episodes">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">تازه منتشر شده</p>
-          <h2>تازه‌ترین اپیزودها</h2>
-          <p class="section-description">قسمت‌های جدیدی که همین تازگی منتشر شدن.</p>
-        </div>
-        <a class="text-link" href="pages/podcasts.html">همه اپیزودها ←</a>
-      </div>
-      <!-- ظرف خالی برای رندر اپیزودها با JavaScript -->
-      <div class="episode-list" id="episode-list"></div>
-    </section>
-
-    <!-- =========================================
-         بخش پادکست‌های منتخب: کارت‌ها از آرایه JS ساخته می‌شوند
-         ========================================= -->
-    <section class="section podcasts-section" id="podcasts">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">پیشنهاد جسور</p>
-          <h2>پادکست‌های منتخب ما</h2>
-          <p class="section-description">روایت‌های متفاوت، برای ذهن‌های کنجکاو.</p>
-        </div>
-        <a class="text-link" href="pages/podcasts.html">مشاهده همه ←</a>
-      </div>
-      <!-- ظرف خالی برای رندر کارت پادکست‌ها با JavaScript -->
-      <div class="podcast-grid" id="podcast-grid"></div>
-    </section>
-
-    <!-- =========================================
-         بنر دعوت از پادکسترها برای همکاری با جسور
-         ========================================= -->
-    <section class="creator-banner" id="creators">
-      <!-- موج صوتی تزئینی بنر -->
-      <div class="banner-wave" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-      </div>
-
-      <div class="creator-banner-content">
-        <p class="section-kicker">صدای تو هم بخشی از داستان جسوره</p>
-        <h2>پادکستت رو به جسور معرفی کن</h2>
-        <p>به جمع روایت‌گرهای جسور بپیوند.</p>
-
-        <!-- جای اختیاری تصویر یا بافت بنر:
-             تصویر پس‌زمینه از طریق CSS در selector مربوط به .creator-banner قابل تنظیم است. -->
-      </div>
-      <a class="banner-button" href="pages/register.html">همکاری با جسور ←</a>
-    </section>
-
-    <!-- بخش تبلیغات فعلاً برای هدف لینک ناوبری مخفی است -->
-    <section class="sr-only" id="ads" aria-label="فرصت‌های تبلیغاتی">
-      <h2>فرصت‌های تبلیغاتی</h2>
-    </section>
   </main>
 
-  <!-- =========================================
-       پابرگ: معرفی کوتاه برند و کپی‌رایت
-       ========================================= -->
+  <!-- ===================== فوتر ===================== -->
   <footer class="site-footer">
-    <a class="brand footer-brand" href="#" aria-label="جسور، صفحه اصلی">
-      <span class="brand-name">جسور</span>
-      <span class="brand-latin">J A S O O R</span>
-    </a>
-    <p>آدم‌ها با جسارت‌هایی که به خرج می‌دن تعریف می‌شن.</p>
-    <small>© جسور — نسخه‌ی آموزشی پروژه مهندسی اینترنت</small>
+    <div class="container site-footer__inner">
+
+      <div class="site-footer__brand">
+        <a href="index.html" class="logo" aria-label="جسور">
+          <img src="assets/images/logo.png" alt="جسور" class="logo__img" width="74" height="50">
+        </a>
+        <p>آدم‌ها با جسارت‌هایی که به خرج می‌دهند شناخته می‌شوند.</p>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="لینک‌های فوتر">
+        <h2 class="site-footer__title">دسترسی سریع</h2>
+        <ul>
+          <li><a href="#podcasts">پادکست‌ها</a></li>
+          <li><a href="#categories">دسته‌بندی‌ها</a></li>
+          <li><a href="#for-creators">پادکسترها</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__nav" aria-label="حساب کاربری">
+        <h2 class="site-footer__title">حساب کاربری</h2>
+        <ul>
+          <li><a href="pages/login.html">ورود</a></li>
+          <li><a href="pages/register.html">ثبت‌نام</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <p class="site-footer__copy">پروژه‌ی درس مهندسی اینترنت. پادکست‌ها و کاورها متعلق به سازندگان آن‌هاست.</p>
   </footer>
 
-  <!-- =========================================
-       پلیر صوتی ثابت پایین صفحه
-       فعلاً رابط کاربری نمایشی است؛ برای صدای واقعی باید فایل audio اضافه شود.
-       ========================================= -->
-  <div class="audio-player" id="audio-player" aria-label="پخش‌کننده صوتی" hidden>
-    <div class="player-track">
-      <strong id="player-title">اپیزود انتخاب‌شده</strong>
-      <small id="player-podcast">جسور</small>
-    </div>
-    <button id="player-toggle" type="button" aria-label="پخش یا توقف">▶</button>
-    <div class="player-progress">
-      <span id="progress-label">00:00</span>
-      <input id="progress" type="range" min="0" max="100" value="0" aria-label="موقعیت پخش">
-      <span>00:00</span>
-    </div>
-    <button id="player-close" type="button" aria-label="بستن پلیر">×</button>
-  </div>
 </body>
 </html>
