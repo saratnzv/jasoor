@@ -1,0 +1,59 @@
+/* استایل صفحات داخلی (pages/)؛ بعد از style.css لود شود.
+   فقط از متغیرها و کلاس‌های style.css استفاده می‌کند. */
+
+/* ---------- سرتیتر صفحه ---------- */
+.page-head { padding: 48px 0 8px; }
+.page-head h1 { font-size: clamp(26px, 3.2vw, 34px); font-weight: 700; }
+
+/* ---------- فیلتر و جست‌وجو ---------- */
+.filter-form { display: flex; gap: 10px; max-width: 560px; margin-bottom: 16px; }
+.filter-form input {
+  flex: 1; min-width: 0; padding: 8px 18px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  color: var(--ink); outline: 0;
+}
+.filter-form input:focus { border-color: var(--accent); }
+
+button.category-chip { cursor: pointer; font: inherit; color: var(--ink); }
+.category-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.category-chip[aria-pressed="true"]:hover { color: var(--bg); }
+
+.results-count { margin: 20px 0 16px; min-height: 1.8em; color: var(--muted); font-size: 14px; }
+.empty-state {
+  grid-column: 1 / -1; text-align: center; padding: 48px 16px;
+  background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted);
+}
+.empty-state strong { display: block; color: var(--ink); font-size: 18px; margin-bottom: 4px; }
+
+/* ---------- ورود و ثبت‌نام ---------- */
+.auth { display: grid; place-items: center; padding: 56px 0; }
+.auth__card {
+  width: min(100% - 32px, 440px); padding: 32px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.auth__card h1 { font-size: 26px; font-weight: 700; }
+.auth__lead { color: var(--muted); margin: 4px 0 24px; font-size: 15px; }
+.auth__switch { margin-top: 20px; text-align: center; color: var(--muted); font-size: 14px; }
+.auth__switch a { color: var(--accent); font-weight: 500; }
+
+.form__field { margin-bottom: 16px; }
+.form__label { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 500; }
+.form__input {
+  width: 100%; padding: 10px 14px; font: inherit; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius); outline: 0;
+}
+.form__input:focus { border-color: var(--accent); }
+.form__input[aria-invalid="true"] { border-color: #b3261e; }
+.form__error { margin-top: 4px; color: #b3261e; font-size: 13px; }
+.form__error[hidden], .form__status[hidden] { display: none; }
+.form__submit { width: 100%; margin-top: 8px; padding: 10px 20px; }
+.form__status {
+  margin-top: 16px; padding: 12px; text-align: center; font-size: 14px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); color: var(--accent-dark);
+}
+
+@media (max-width: 480px) {
+  .auth { padding: 32px 0; }
+  .auth__card { padding: 24px; }
+  .filter-form { flex-wrap: wrap; }
+}
