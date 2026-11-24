@@ -26,6 +26,13 @@
     return !message;
   }
 
+  // فقط آدرس‌های هم‌دامنه پذیرفته می‌شوند (جلوگیری از ریدایرکت به سایت دیگر)
+  function nextUrl() {
+    const n = new URLSearchParams(location.search).get("next");
+    if (!n) return null;
+    try { const u = new URL(n, location.href); return u.origin === location.origin ? u.href : null; } catch { return null; }
+  }
+
   const inputs = [...form.querySelectorAll("input")];
 
   inputs.forEach((input) => {
@@ -41,7 +48,14 @@
     e.preventDefault();
     const firstBad = inputs.map((i) => ({ i, ok: validate(i) })).find((r) => !r.ok);
     if (firstBad) { status.hidden = true; firstBad.i.focus(); return; }
-    status.textContent = "اطلاعات معتبر است؛ اما این نسخه به بک‌اند وصل نیست و چیزی ارسال نشد.";
+    // ⚠ نشست نمایشی: هر اطلاعات معتبری پذیرفته می‌شود. با سرولت واقعی جایگزین می‌شود.
+    // توجه: form.name خودِ فرم است؛ فیلدها را از form.elements بخوانید
+    const email = form.elements.email.value.trim();
+    const nameField = form.elements.name;
+    const name = nameField ? nameField.value.trim() : email.split("@")[0];
+    if (window.Jasoor) Jasoor.login({ name, email });
+    status.textContent = "وارد شدی. (نمایشی؛ هنوز به سرور وصل نیست)";
     status.hidden = false;
+    setTimeout(() => { location.href = nextUrl() || (window.Jasoor ? Jasoor.ROOT + "index.html" : "../index.html"); }, 600);
   });
 })();

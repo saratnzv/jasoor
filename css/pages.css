@@ -57,3 +57,34 @@ button.category-chip { cursor: pointer; font: inherit; color: var(--ink); }
   .auth__card { padding: 24px; }
   .filter-form { flex-wrap: wrap; }
 }
+
+/* ---------- علاقه‌مندی ---------- */
+.podcast-card__actions { display: flex; align-items: center; gap: 8px; margin-top: auto; }
+.podcast-card__actions .btn { margin-top: 0; }
+.fav-btn {
+  width: 34px; height: 34px; display: grid; place-items: center; flex: none;
+  border: 1px solid var(--ink); border-radius: 50%; background: transparent; color: var(--ink);
+  font-size: 18px; line-height: 1; cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.fav-btn:hover { background: var(--ink); color: var(--bg); }
+.fav-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ---------- حالت «وارد شده» در هدر ---------- */
+.user-menu { display: flex; align-items: center; gap: 8px; }
+.user-menu__name { max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+.user-menu__name:hover { color: var(--accent); }
+
+/* ---------- اعلان «ابتدا وارد شو» و فرم معرفی ---------- */
+.notice {
+  padding: 24px; text-align: center; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius);
+}
+.notice p { margin-bottom: 12px; color: var(--muted); }
+.notice[hidden], #favorites-content[hidden], #submit-form[hidden] { display: none; }
+.auth__card--wide { width: min(100% - 32px, 560px); }
+textarea.form__input { min-height: 110px; resize: vertical; }
+
+@media (max-width: 480px) {
+  .user-menu__name { max-width: 70px; }
+}
