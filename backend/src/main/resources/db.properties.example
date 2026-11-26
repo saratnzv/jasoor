@@ -1,0 +1,5 @@
+# این فایل را کپی کن به db.properties (کنار همین فایل) و مقدارها را پر کن.
+# db.properties در .gitignore است؛ هرگز وارد گیت نکن.
+url=jdbc:mysql://localhost:3306/jasoor?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+user=jasoor_app
+password=رمز-کاربر-برنامه-را-اینجا-بنویس

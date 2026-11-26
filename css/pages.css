@@ -88,3 +88,34 @@ textarea.form__input { min-height: 110px; resize: vertical; }
 @media (max-width: 480px) {
   .user-menu__name { max-width: 70px; }
 }
+
+/* =====================================================================
+   ظاهر ظریف‌تر کارت‌ها، تصویر ثابت کناری، و منوی فشرده‌تر
+   ===================================================================== */
+
+/* ---------- کارت پادکست: کوچک‌تر و ظریف‌تر ---------- */
+.card-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.podcast-card { border-radius: 14px; }
+.podcast-card__cover { width: calc(100% - 20px); margin: 10px 10px 0; border-radius: 9px; }
+.podcast-card__body { gap: 6px; padding: 12px 14px 14px; }
+.podcast-card__title { font-size: 16px; }
+.podcast-card__desc {
+  font-size: 13px; line-height: 1.75;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.podcast-card__note { font-size: 11px; }
+.podcast-card__actions .btn { flex: 1; padding: 4px 8px; font-size: 13px; white-space: nowrap; text-align: center; }
+
+/* ---------- تصویر ثابت مینیمال سمت چپ، پشت محتوا ---------- */
+body::before {
+  content: ""; position: fixed; z-index: -1; pointer-events: none;
+  left: 1vw; top: 50%; transform: translateY(-50%);
+  height: min(70vh, 620px); aspect-ratio: 640 / 952;
+  background: url("../assets/images/phoenix.png") center / contain no-repeat;
+  opacity: .10;
+}
+@media (max-width: 1100px) { body::before { opacity: .07; } }
+@media (max-width: 860px)  { body::before { display: none; } }
+
+/* ---------- منو: با اضافه شدن آموزش و ایونت‌ها فشرده‌تر ---------- */
+@media (max-width: 1100px) { .main-nav__list { gap: 14px; font-size: 15px; } }
