@@ -1,4 +1,0 @@
-
-# Backend
-backend/target/
-backend/src/main/resources/db.properties

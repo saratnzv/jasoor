@@ -16,3 +16,7 @@ Thumbs.db
 node_modules/
 dist/
 build/
+
+# Backend
+backend/target/
+backend/src/main/resources/db.properties
